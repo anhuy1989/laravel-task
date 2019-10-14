@@ -22,30 +22,20 @@ class Task extends Model
      * @var array
      */
     protected $fillable = [
-        'title',
+        'name',
         'is_complete',
     ];
-
-    /**
-     * The relationship to the owning user.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     /**
      * @param $query
      * @param $request
      * @return mixed
      */
-    public function scopeTitle($query, $request)
+    public function scopeName($query, $request)
     {
 
-        if ($request->has('title')) {
-            $query->where('title', 'LIKE', '%' . $request->title . '%');
+        if ($request->has('name')) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
         }
         return $query;
     }

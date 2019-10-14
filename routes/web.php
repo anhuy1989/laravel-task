@@ -17,11 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function() {
-    Route::resource('tasks', 'TaskController', [
-        'only' => [
-            'index', 'store', 'update', 'destroy'
-        ]
-    ]);
+Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware(['auth'])->group(function() {
+    Route::resource('tasks', 'TaskController');
+    Route::resource('roles','RoleController');
+    Route::resource('users','UserController');
 });
