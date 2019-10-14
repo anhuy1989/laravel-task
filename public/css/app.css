@@ -10644,3 +10644,11 @@ a.text-dark:focus {
   }
 }
 
+.card-new-task {
+  margin-bottom: 20px;
+}
+
+.pagination {
+  justify-content: center;
+}
+
